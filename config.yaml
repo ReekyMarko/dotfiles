@@ -1,5 +1,3 @@
-actions:
-  vim-plug: nvim +PlugInstall +qall
 config:
   backup: true
   banner: true
@@ -25,20 +23,15 @@ dotfiles:
   d_imapnotify:
     dst: ~/.config/imapnotify
     src: .config/imapnotify
-  f_init.vim:
-    dst: ~/.config/nvim/init.vim
-    src: .config/nvim/init.vim
-  d_nvim_config:
-    actions:
-    - vim-plug
-    dst: ~/.config/nvim/conf.d
-    src: .config/nvim/conf.d
+  f_nvim_init:
+    dst: ~/.config/nvim/init.lua
+    src: .config/nvim/init.lua
+  d_nvim_lua:
+    dst: ~/.config/nvim/lua
+    src: .config/nvim/lua
   f_user-dirs.dirs:
     dst: ~/.config/user-dirs.dirs
     src: .config/user-dirs.dirs
-  f_coc-settings.json:
-    dst: ~/.config/nvim/coc-settings.json
-    src: .config/nvim/coc-settings.json
   d_sway:
     dst: ~/.config/sway
     src: .config/sway
@@ -177,9 +170,8 @@ profiles:
     - f_ranger.conf
     - f_ssh.conf
     - f_authorized_keys
-    - d_nvim_config
-    - f_init.vim
-    - f_coc-settings.json
+    - d_nvim_lua
+    - f_nvim_init
     - f_gitconfig
     - f_alacritty.yml
   email:
@@ -239,21 +231,8 @@ profiles:
     - terminal
     - Pacman
   mko-laptop:
-    dotfiles:
-    - f_nvimpager
-    - f_hushlogin
-    - f_ripgrep_ignore
-    - f_ranger_commands.py
-    - f_rtv.cfg
-    - f_mailcap
-    - d_zsh
-    - f_zshrc
-    - f_tmux.conf
-    - f_ranger.conf
-    - d_nvim_config
-    - f_init.vim
-    - f_coc-settings.json
-    - f_alacritty.yml
+    include:
+    - terminal
   AnittaPC:
     include:
     - terminal
