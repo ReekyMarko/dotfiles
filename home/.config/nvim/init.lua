@@ -1,10 +1,10 @@
 require 'autocmd'
 require 'keybinds'
-require 'pluginmanager'
 require 'settings'
+require 'pluginmanager'
 
 -- Plugin configurations
-require 'plugins/airline'
-require 'plugins/lsp'
-require 'plugins/nerdtree'
-require 'plugins/treesitter'
+--require 'pluginconf.airline'
+require 'pluginconf.completion'
+require 'pluginconf.lsp'
+require 'pluginconf.treesitter'
