@@ -1,6 +1,7 @@
-local map = function(type, key, value)
-    vim.fn.nvim_buf_set_keymap(0, type, key, value,
-                               {noremap = true, silent = true})
+local function map(mode, lhs, rhs, opts)
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Open/close nerdtree
@@ -11,5 +12,5 @@ map('n', '<C-f>', '<cmd>Files<CR>')
 map('n', '<C-g>', '<cmd>Rg<CR>')
 
 -- Completion
-map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"')
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
