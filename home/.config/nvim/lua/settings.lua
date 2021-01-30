@@ -24,9 +24,17 @@ cmd 'highlight SignColumn guibg=transparent'
 
 ------ Misc -------
 
+-- Split direction
+o.splitbelow = true
+o.splitright = true
+
+
 -- Case insensitive search
 o.ignorecase = true
 o.smartcase = true
+
+-- Use mouse
+o.mouse = 'a'
 
 -- Use system clipboard
 o.clipboard = 'unnamedplus'
