@@ -128,23 +128,24 @@ passync() { pass git pull && pass git push && updatesecrets }
 
 update() {
 	all() {
+		paru
 		plugins
 		{%@@ if profile == "Moria" @@%}
-		base --devel
+		repo
 		docker-update
 		docker system prune --volumes
-		{%@@ elif profile == "Mirkwood" @@%}
-		base --devel firefox-nightly
-		{%@@ else @@%}
-		base --devel
 		{%@@ endif @@%}
-		flatpak update
+		sudo flatpak update
 		sudo awman-update
 	}
 
-	base() {
-		paru -Pw
-		paru -Syu $@
+	repo() {
+		aur sync -Su --margs --noconfirm
+		firefox
+	}
+
+	firefox() {
+		aur sync -S --rebuild firefox-nightly --margs --noconfirm 
 	}
 
 	plugins() {
@@ -171,17 +172,20 @@ update() {
 		all)
 			all
 			;;
-		base)
-			base
-			;;
 		plugins)
 			plugins
 			;;
 		docker)
 			docker-update
 			;;
+		repo)
+			repo
+			;;
+		firefox)
+			firefox
+			;;
 		*)
-			base $@
+			paru
 			;;
 	esac
 }
@@ -203,6 +207,8 @@ alias notify-send='notify-send --icon=alarm'
 
 # download archiso
 alias archiso='curl "http://mirror.rackspace.com/archlinux/iso/$(date +%Y.%m).01/archlinux-$(date +%Y.%m).01-x86_64.iso"'
+
+# Update repository
 
 
 # encrypted tar's with zstd compression
@@ -280,4 +286,3 @@ btw, () {
   ▟███▀▘                       ▝▀███▙
  ▟▛▀                               ▀▜▙"
 }
-
