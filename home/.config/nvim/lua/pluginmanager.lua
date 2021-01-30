@@ -38,6 +38,9 @@ require('packer').startup(function()
 
 	-- Completion framework
 	use 'nvim-lua/completion-nvim'
+
+	-- Treesitter syntax highlight
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 end)
 
 -- Install plugins if packer was not installed
