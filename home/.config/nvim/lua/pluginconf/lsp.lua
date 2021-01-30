@@ -1,9 +1,12 @@
+-- Rust
 require'lspconfig'.rust_analyzer.setup {
     on_attach = require'completion'.on_attach
 }
 
+-- Lua
 local sumneko_binary = '/usr/bin/lua-language-server'
 require'lspconfig'.sumneko_lua.setup {
+    on_attach = require'completion'.on_attach,
     cmd = {sumneko_binary},
     settings = {
         Lua = {
@@ -27,3 +30,9 @@ require'lspconfig'.sumneko_lua.setup {
         }
     }
 }
+
+-- YAML
+require'lspconfig'.yamlls.setup {on_attach = require'completion'.on_attach}
+
+-- JavaScript / TypeScript
+require'lspconfig'.tsserver.setup {on_attach = require'completion'.on_attach}
