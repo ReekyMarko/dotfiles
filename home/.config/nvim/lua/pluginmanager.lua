@@ -13,6 +13,7 @@ end
 
 -- Configure packer
 cmd 'packadd packer.nvim'
+local use = require('packer').use
 require('packer').startup(function()
 
     -- The plugin manager itself
@@ -45,6 +46,7 @@ require('packer').startup(function()
 
     -- Formatter plugin
     use 'sbdchd/neoformat'
+
 end)
 
 -- Install plugins if packer was not installed

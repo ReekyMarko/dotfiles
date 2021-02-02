@@ -1,7 +1,7 @@
+require 'pluginmanager'
 require 'autocmd'
 require 'keybinds'
 require 'settings'
-require 'pluginmanager'
 
 -- Plugin configurations
 require 'pluginconf.airline'

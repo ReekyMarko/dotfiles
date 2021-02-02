@@ -4,10 +4,9 @@ require'lspconfig'.rust_analyzer.setup {
 }
 
 -- Lua
-local sumneko_binary = '/usr/bin/lua-language-server'
 require'lspconfig'.sumneko_lua.setup {
     on_attach = require'completion'.on_attach,
-    cmd = {sumneko_binary},
+    cmd = {'/usr/bin/lua-language-server'},
     settings = {
         Lua = {
             runtime = {
