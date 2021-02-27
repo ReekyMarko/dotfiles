@@ -28,9 +28,10 @@ require('packer').startup(function()
     -- Tree explorer
     use 'scrooloose/nerdtree'
 
-    -- Fuzzy finder
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 
     -- Do stuff as sudo
     use 'lambdalisue/suda.vim'
