@@ -10,8 +10,10 @@ services:
     volumes:
       - /docker/tvheadend:/config
       - /mnt/Storage/Media/PVR:/recordings
+      - /mnt/Storage/picons:/picons
       - /etc/localtime:/etc/localtime:ro
     ports:
+      - 9981:9981
       - 9982:9982
     devices:
       - /dev/dri:/dev/dri #hardware acceleration
