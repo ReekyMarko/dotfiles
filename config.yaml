@@ -248,3 +248,6 @@ profiles:
   localhost:
     include:
     - terminal
+  ViiruJaTeippi:
+    include:
+    - terminal
